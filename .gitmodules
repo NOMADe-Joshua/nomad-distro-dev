@@ -1,3 +1,6 @@
 [submodule "packages/nomad-FAIR"]
 	path = packages/nomad-FAIR
 	url = https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR.git
+[submodule "packages/nomad-baseclasses"]
+	path = packages/nomad-baseclasses
+	url = https://github.com/nomad-hzb/nomad-baseclasses.git
