@@ -4,3 +4,6 @@
 [submodule "packages/nomad-baseclasses"]
 	path = packages/nomad-baseclasses
 	url = https://github.com/nomad-hzb/nomad-baseclasses.git
+[submodule "packages/nomad-perotf"]
+	path = packages/nomad-perotf
+	url = https://github.com/nomad-hzb/nomad-perotf.git
