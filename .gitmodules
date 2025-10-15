@@ -16,3 +16,6 @@
 [submodule "packages/felixundjoshuanehmenkeineminus"]
 	path = packages/felixundjoshuanehmenkeineminus
 	url = https://github.com/NOMADe-Joshua/felixundjoshuanehmenkeineminus.git
+[submodule "packages/nomad-luqy-plugin"]
+	path = packages/nomad-luqy-plugin
+	url = https://github.com/NOMADe-Joshua/nomad-luqy-plugin.git
