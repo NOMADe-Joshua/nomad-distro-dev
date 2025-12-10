@@ -1,88 +1,14 @@
-<<<<<<< HEAD
-#
-# Copyright (c) 2018-2020 The NOMAD Authors.
-#
-# This file is part of NOMAD.
-# See https://nomad-lab.eu for further info.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
-services:
-  # broker for celery
-  rabbitmq:
-    restart: "no"
-    image: rabbitmq:3.11.5
-    container_name: nomad_rabbitmq
-=======
 services:
   # broker for celery
   rabbitmq:
     restart: unless-stopped
     image: docker.io/rabbitmq:3.11.5-alpine
     container_name: nomad_oasis_rabbitmq
->>>>>>> v2.2.0
     environment:
       - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
       - RABBITMQ_DEFAULT_USER=rabbitmq
       - RABBITMQ_DEFAULT_PASS=rabbitmq
       - RABBITMQ_DEFAULT_VHOST=/
-<<<<<<< HEAD
-    ports:
-      - 5672:5672
-    volumes:
-      - nomad_rabbitmq:/var/lib/rabbitmq
-
-  # the search engine
-  elastic:
-    restart: "no"
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
-    container_name: nomad_elastic
-    environment:
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - cluster.routing.allocation.disk.threshold_enabled=true
-      - cluster.routing.allocation.disk.watermark.flood_stage=1gb
-      - cluster.routing.allocation.disk.watermark.low=4gb
-      - cluster.routing.allocation.disk.watermark.high=2gb
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-    ports:
-      - 9200:9200
-    volumes:
-      - nomad_elastic:/usr/share/elasticsearch/data
-
-  # the user data db
-  mongo:
-    restart: "no"
-    image: mongo:5.0.6
-    container_name: nomad_mongo
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-    ports:
-      - 27017:27017
-    volumes:
-      - nomad_mongo:/data/db
-      - nomad_mongo_config:/data/configdb
-    command: mongod
-    # --logpath=/dev/null # --quiet
-
-volumes:
-  nomad_mongo:
-  nomad_mongo_config:
-  nomad_elastic:
-  nomad_rabbitmq:
-=======
     volumes:
       - rabbitmq:/var/lib/rabbitmq
     healthcheck:
@@ -175,7 +101,7 @@ volumes:
   # nomad worker (processing)
   worker:
     restart: unless-stopped
-    image: ghcr.io/nomade-joshua/nomad-distro-dev:main
+    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
     platform: linux/amd64
     environment:
       NOMAD_SERVICE: nomad_oasis_worker
@@ -222,7 +148,7 @@ volumes:
   ## nomad gpu worker (actions)
   # gpu_worker:
   #   restart: unless-stopped
-  #   image: ghcr.io/nomade-joshua/nomad-distro-dev/gpu-action:main
+  #   image: ghcr.io/fairmat-nfdi/nomad-distro-template/gpu-action:main
   #   platform: linux/amd64
   #   container_name: nomad_oasis_gpu_worker
   #   env_file:
@@ -259,7 +185,7 @@ volumes:
   # # nomad cpu worker (actions)
   # cpu_worker:
   #   restart: unless-stopped
-  #   image: ghcr.io/nomade-joshua/nomad-distro-dev/cpu-action:main
+  #   image: ghcr.io/fairmat-nfdi/nomad-distro-template/cpu-action:main
   #   platform: linux/amd64
   #   container_name: nomad_oasis_cpu_worker
   #   env_file:
@@ -294,7 +220,7 @@ volumes:
   # nomad app (api + proxy)
   app:
     restart: unless-stopped
-    image: ghcr.io/nomade-joshua/nomad-distro-dev:main
+    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
     platform: linux/amd64
     container_name: nomad_oasis_app
     environment:
@@ -339,7 +265,7 @@ volumes:
   # nomad remote tools hub (JupyterHUB, e.g. for AI Toolkit)
   north:
     restart: unless-stopped
-    image: ghcr.io/nomade-joshua/nomad-distro-dev:main
+    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
     platform: linux/amd64
     container_name: nomad_oasis_north
     environment:
@@ -377,7 +303,7 @@ volumes:
   # to enable the logtransfer service run "docker compose --profile with_logtransfer up"
   logtransfer:
     restart: unless-stopped
-    image: ghcr.io/nomade-joshua/nomad-distro-dev:main
+    image: ghcr.io/fairmat-nfdi/nomad-distro-template:main
     platform: linux/amd64
     container_name: nomad_oasis_logtransfer
     environment:
@@ -424,7 +350,7 @@ volumes:
 
   # jupyterlab image: (this is only used to pull the image, no service is run for this)
   jupyterlab_image:
-    image: ghcr.io/nomade-joshua/nomad-distro-dev/jupyter:main
+    image: ghcr.io/fairmat-nfdi/nomad-distro-template/jupyter:main
     platform: linux/amd64
     container_name: nomad_jupyter_image
     pull_policy: always
@@ -446,4 +372,3 @@ volumes:
 networks:
   default:
     name: nomad_oasis_network
->>>>>>> v2.2.0
