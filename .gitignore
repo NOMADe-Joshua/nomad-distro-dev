@@ -26,9 +26,12 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+<<<<<<< HEAD
 uv.lock
 celerybeat-schedule*
 nomad.yaml
+=======
+>>>>>>> v2.2.0
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -77,7 +80,10 @@ docs/_build/
 # PyBuilder
 .pybuilder/
 target/
+<<<<<<< HEAD
 .volumes
+=======
+>>>>>>> v2.2.0
 
 # Jupyter Notebook
 .ipynb_checkpoints
