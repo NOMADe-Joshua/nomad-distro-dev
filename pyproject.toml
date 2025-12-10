@@ -54,7 +54,7 @@ dependencies = [
 
 
 [project.urls]
-repository = "https://github.com/FAIRmat-NFDI/nomad-distro-template"
+repository = "https://github.com/nomade-joshua/nomad-distro-dev"
 
 [project.optional-dependencies]
 plugins = [
