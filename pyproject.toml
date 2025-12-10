@@ -59,7 +59,14 @@ plugins = [
   "nomad-parser-plugins-workflow>=1.0",
   "nomad-parser-plugins-database>=1.0",
 ]
-jupyter = ["jupyter-events"]
+jupyter = [
+  "voila",
+  "ipyaggrid",
+  "ipysheet",
+  "ipydatagrid",
+  "jupyter-flex",
+  "jupyter-events",
+]
 gpu-action = []
 cpu-action = []
 
