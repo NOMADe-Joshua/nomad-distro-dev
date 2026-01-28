@@ -1,3 +1,15 @@
 [submodule "packages/nomad-FAIR"]
 	path = packages/nomad-FAIR
 	url = https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR.git
+[submodule "packages/nomad-luqy-plugin"]
+	path = packages/nomad-luqy-plugin
+	url = https://github.com/Pepe-Marquez/nomad-luqy-plugin.git
+[submodule "packages/nomad-perotf"]
+	path = packages/nomad-perotf
+	url = https://github.com/nomad-hzb/nomad-perotf.git
+[submodule "packages/nomad-baseclasses"]
+	path = packages/nomad-baseclasses
+	url = https://github.com/nomad-hzb/nomad-baseclasses.git
+[submodule "packages/nomad-measurements"]
+	path = packages/nomad-measurements
+	url = https://github.com/FAIRmat-NFDI/nomad-measurements.git
